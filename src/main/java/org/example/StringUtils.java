@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class StringUtils {
@@ -73,5 +74,26 @@ public class StringUtils {
             }
         }
         return stringBuilder.toString();
+    }
+
+    public Character mostRepeatedCharacter(String str){
+
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        int most = 0;
+        char mostRepeatedChar = ' ';
+
+        for (int i = 0; i < str.length(); i++) {
+            var current = str.charAt(i);
+            if (hashMap.get(current) != null){
+                hashMap.replace(current, hashMap.get(current) + 1);
+            }else {
+                hashMap.put(current, 1);
+            }
+            if (hashMap.get(current) > most){
+                most = hashMap.get(current);
+                mostRepeatedChar = current;
+            }
+        }
+        return  mostRepeatedChar;
     }
 }

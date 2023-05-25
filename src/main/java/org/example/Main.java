@@ -4,6 +4,6 @@ public class Main {
     public static void main(String[] args) {
         StringUtils stringUtils = new StringUtils();
 
-        System.out.println(stringUtils.removeDuplicates("Hellooo!!"));
+        System.out.println(stringUtils.mostRepeatedCharacter("Hellloooo!!"));
     }
 }
