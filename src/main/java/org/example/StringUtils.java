@@ -35,4 +35,18 @@ public class StringUtils {
         }
         return count;
     }
+
+    public String reverseWords(String str){
+        if (str == null || str.isEmpty())
+            return "";
+
+        String[] wordsArray = str.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = wordsArray.length - 1; i >= 0 ; i--) {
+            stringBuilder.append(wordsArray[i]).append(" ");
+        }
+
+        return stringBuilder.toString().trim();
+    }
 }
