@@ -57,4 +57,21 @@ public class StringUtils {
         return first.length() == second.length()
                 && (first+first).contains(second);
     }
+
+    public String removeDuplicates(String str){
+        if (str == null || str.isEmpty())
+            return "";
+
+        HashSet<Character> hashSet = new HashSet<>();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            var current = str.charAt(i);
+            if (!hashSet.contains(current)){
+                stringBuilder.append(current);
+                hashSet.add(current);
+            }
+        }
+        return stringBuilder.toString();
+    }
 }
