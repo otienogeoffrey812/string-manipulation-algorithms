@@ -76,7 +76,7 @@ public class StringUtils {
         return stringBuilder.toString();
     }
 
-    public Character mostRepeatedCharacter(String str){
+    public char mostRepeatedCharacter(String str){
 
         HashMap<Character, Integer> hashMap = new HashMap<>();
         int count = 0;
@@ -95,5 +95,20 @@ public class StringUtils {
             }
         }
         return  mostRepeatedChar;
+    }
+
+    public String capitalizeAndRemoveExtraSpaces(String str){
+        if (str == null || str.trim().isEmpty())
+            return "";
+
+        String[] wordsArray = str.replaceAll(" +", " ").trim().split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String word: wordsArray){
+            var capWord = word.substring(0, 1).toUpperCase() + word.substring(1);
+            stringBuilder.append(capWord).append(" ");
+        }
+
+        return stringBuilder.toString().trim();
     }
 }
