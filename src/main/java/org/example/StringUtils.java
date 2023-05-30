@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -110,5 +111,18 @@ public class StringUtils {
         }
 
         return stringBuilder.toString().trim();
+    }
+
+    public boolean isAnagram(String first, String second){
+        if (first == null || second == null)
+            return false;
+
+        var firstArray = first.toCharArray();
+        Arrays.sort(firstArray);
+
+        var secondArray = second.toCharArray();
+        Arrays.sort(secondArray);
+
+        return Arrays.equals(firstArray, secondArray);
     }
 }
