@@ -79,7 +79,7 @@ public class StringUtils {
     public Character mostRepeatedCharacter(String str){
 
         HashMap<Character, Integer> hashMap = new HashMap<>();
-        int most = 0;
+        int count = 0;
         char mostRepeatedChar = ' ';
 
         for (int i = 0; i < str.length(); i++) {
@@ -89,8 +89,8 @@ public class StringUtils {
             }else {
                 hashMap.put(current, 1);
             }
-            if (hashMap.get(current) > most){
-                most = hashMap.get(current);
+            if (hashMap.get(current) > count){
+                count = hashMap.get(current);
                 mostRepeatedChar = current;
             }
         }
