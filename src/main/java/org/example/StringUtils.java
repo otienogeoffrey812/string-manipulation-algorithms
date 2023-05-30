@@ -49,4 +49,12 @@ public class StringUtils {
 
         return stringBuilder.toString().trim();
     }
+
+    public boolean areRotations(String first, String second){
+        if (first == null || second == null)
+            return false;
+
+        return first.length() == second.length()
+                && (first+first).contains(second);
+    }
 }
