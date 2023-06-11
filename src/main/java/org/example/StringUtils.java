@@ -139,4 +139,31 @@ public class StringUtils {
         }
         return true;
     }
+    public String longestPalindromeSubstring(String str){
+        if (str == null || str.length() < 1) return "";
+        int start = 0;
+        int end = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            int length1 = expandFromMiddle(str, i, i);
+            int length2 = expandFromMiddle(str, i, i+1);
+            int length = Math.max(length1, length2);
+
+            if (length > end - start){
+                start = i - ((length -1) / 2);
+                end = i + (length / 2);
+            }
+        }
+        return str.substring(start, end + 1);
+    }
+
+    private int expandFromMiddle(String s, int left, int right){
+        if (s == null || left > right) return 0;
+
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    }
 }
