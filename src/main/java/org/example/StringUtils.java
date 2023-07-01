@@ -3,6 +3,7 @@ package org.example;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Stack;
 
 public class StringUtils {
     public String reverseString(String str){
@@ -166,4 +167,19 @@ public class StringUtils {
         }
         return right - left - 1;
     }
+
+    public boolean hasBalancedBrackets(String str){
+        Stack<Character> stack = new Stack<>();
+        for (char ch : str.toCharArray()){
+            if(ch == '(') {
+                stack.push(ch);
+            }
+            if (ch == ')'){
+                if (stack.isEmpty()) return false;
+                stack.pop();
+            }
+        }
+        return stack.isEmpty();
+    }
+
 }
