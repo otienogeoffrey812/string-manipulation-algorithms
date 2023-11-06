@@ -1,4 +1,4 @@
-package org.example;
+package com.artman;
 
 import java.util.Arrays;
 import java.util.HashMap;

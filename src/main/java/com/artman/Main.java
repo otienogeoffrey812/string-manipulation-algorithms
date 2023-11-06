@@ -1,7 +1,4 @@
-package org.example;
-
-import java.util.HashMap;
-import java.util.HashSet;
+package com.artman;
 
 public class Main {
     public static void main(String[] args) {
