@@ -2,7 +2,7 @@
 
 This repository contains solutions to various string manipulation algorithms, written in Java.
 
-## Solutions
+## Algorithms
 
 * Reverse String
 * Count Vowels
