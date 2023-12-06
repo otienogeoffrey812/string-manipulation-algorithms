@@ -1,9 +1,6 @@
 package com.artman;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Stack;
+import java.util.*;
 
 public class StringUtils {
     public String reverseString(String str){
@@ -169,14 +166,19 @@ public class StringUtils {
     }
 
     public boolean hasBalancedBrackets(String str){
+        List<Character> leftBrackets = new ArrayList<>(Arrays.asList('(', '<', '[', '{'));
+        List<Character> rightBrackets = new ArrayList<>(Arrays.asList(')', '>', ']', '}'));
+
         Stack<Character> stack = new Stack<>();
         for (char ch : str.toCharArray()){
-            if(ch == '(') {
+            if (leftBrackets.contains(ch))
                 stack.push(ch);
-            }
-            if (ch == ')'){
-                if (stack.isEmpty()) return false;
-                stack.pop();
+
+            if (rightBrackets.contains(ch)) {
+                if (stack.empty()) return false;
+
+                var top = stack.pop();
+                if ( leftBrackets.indexOf(top) != rightBrackets.indexOf(ch)) return false;
             }
         }
         return stack.isEmpty();
