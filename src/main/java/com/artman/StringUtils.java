@@ -13,6 +13,9 @@ public class StringUtils {
             stringBuilder.append(str.charAt(i));
         }
         return stringBuilder.toString();
+
+        // Another way to reverse a string
+        // return new StringBuilder(str).reverse().toString();
     }
 
     public int countVowels(String str){
@@ -182,6 +185,31 @@ public class StringUtils {
             }
         }
         return stack.isEmpty();
+    }
+
+    public  String compressString(String str){
+        StringBuilder stringBuilder = new StringBuilder();
+        HashMap<Character, Integer> map = new HashMap<>();
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char current = str.charAt(i);
+
+            if(map.containsKey(current)){
+                map.put(current, map.get(current) + 1);
+            }else {
+                stringBuilder.append(current);
+                if(i >0){
+                    char previous = str.charAt(i - 1);
+                    stringBuilder.append(map.get(previous));
+                    map.remove(previous);
+                }
+                map.put(current, 1);
+            }
+        }
+//        stringBuilder.append();
+
+        return stringBuilder.toString();
     }
 
 }
